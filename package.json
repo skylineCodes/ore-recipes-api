@@ -1,0 +1,44 @@
+{
+  "name": "ore-recipe-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "serve": "node build/app.js",
+    "build": "rm -rf ./build && tsc && npm run migrate-db && npm run seed-db",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "watch-node": "nodemon -r dotenv/config build/app.js",
+    "watch-ts": "tsc -w",
+    "lint": "eslint . --ext .ts",
+    "migrate-db": "cross-env node_modules/.bin/sequelize db:migrate",
+    "drop-db": "cross-env node_modules/.bin/sequelize db:migrate:undo:all",
+    "seed-db": "cross-env node_modules/.bin/sequelize db:seed:all",
+    "seed-undo-last-db": "cross-env node_modules/.bin/sequelize db:seed:undo",
+    "seed-undo-db": "cross-env node_modules/.bin/sequelize db:seed:undo:all",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.20",
+    "@types/joi": "^17.2.3",
+    "@types/sequelize": "^4.28.17",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "joi": "^17.11.0",
+    "mariadb": "^3.2.2",
+    "sequelize": "^6.33.0",
+    "sequelize-cli": "^6.6.1",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.15",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.2.2"
+  }
+}

@@ -1,0 +1,38 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+.idea
+.DS_Store
+
+# ignore vs code project config files
+.vscode/settings.json
+.vs
+
+.vscode
+
+# ignore logs
+logs
+*.log
+
+# ignore 3rd party lib
+node_modules
+
+# ignore key
+*.pem
+
+# Ignore built files
+build
+
+# ignore test converage
+coverage
+
+# Environment varibles
+*.env
+*.env.*
+i.js
+
+# Terraform variables
+env.tf
+staging_env.json
+env.json
+.terraform
+
+.env
